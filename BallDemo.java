@@ -85,13 +85,14 @@ public class BallDemo
         // draw the right wall
         myCanvas.drawLine(rightWall, ceiling, rightWall, ground);
         
+        
         // create a set of balls based on user defined amount with a random starting location
         // based on canvas size and frame width
         HashSet<BoxBall> ballSet = new HashSet<BoxBall>();
         for (int count= 0; count < ballCount; count++)
         {
-            BoxBall ball = new BoxBall((random.nextInt(width - (2*frameWidth) - 49)) + (frameWidth + 50),
-                                        (random.nextInt(height - (2*frameWidth) - 49)) + (frameWidth + 50),
+            BoxBall ball = new BoxBall((random.nextInt(width - (2*frameWidth) - 52)) + (frameWidth + 26),
+                                        (random.nextInt(height - (2*frameWidth) - 52)) + (frameWidth + 26),
                                         ground, ceiling, leftWall, rightWall, myCanvas);
             ballSet.add(ball);
             ball.draw();

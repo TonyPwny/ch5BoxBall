@@ -3,10 +3,9 @@ import java.awt.geom.*;
 import java.util.Random;
 
 /**
- * Class BoxBall - a graphical ball that bounces within a frame of an area. The ball
- * has the ability to move. The intial position and speed of the ball is random.
+ * Class BoxBall - Graphical balls that bounces within a frame of an area. The balls
+ * have the ability to move. The intial position and speed of the balls are random.
  *
- * This movement can be initiated by repeated calls to the "move" method.
  * 
  * @author Anthony Tiongson
  * @version 2018.10.22
@@ -99,27 +98,27 @@ public class BoxBall
         // check if it has hit the ground
         if(yPosition >= (groundPosition - diameter)) {
             yPosition = (int)(groundPosition - diameter);
-            ySpeed = -ySpeed ; 
+            ySpeed = -ySpeed; 
         }
         
         // check if it has hit the ceiling
         if(yPosition <= ceilingPosition) {
             yPosition = (int)(ceilingPosition);
-            ySpeed = -ySpeed ; 
+            ySpeed = -ySpeed; 
         }
         
         // check if it has hit the left wall
         if(xPosition <= leftWallPosition) {
             xPosition = (int)(leftWallPosition + 1); // +1 prevents chipping
-            xSpeed = -xSpeed ; 
+            xSpeed = -xSpeed; 
         }
         
         // check if it has hit the right wall
         if(xPosition >= (rightWallPosition - diameter)) {
             xPosition = (int)(rightWallPosition - diameter);
-            xSpeed = -xSpeed ; 
+            xSpeed = -xSpeed; 
         }
-
+        
         // draw again at new position
         draw();
     }    
