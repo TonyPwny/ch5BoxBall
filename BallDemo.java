@@ -104,11 +104,29 @@ public class BallDemo
         while(!finished) {
             myCanvas.wait(50);           // small delay
             
+            boolean noCollision;
             for (int i=0; i < ballCount; i++) {
-
+                
+                noCollision = true;
+                for (int j = i + 1; (j < ballCount) && noCollision; j++) {
+                    
+                    // got algorithm for collision detection from:
+                    // https://gamedevelopment.tutsplus.com/tutorials/when-worlds-collide-simulating-circle-circle-collisions--gamedev-769
+                    if (ball[i].getXCenter() + ball[i].getRadius() + ball[j].getRadius() > ball[j].getXCenter() 
+                        && ball[i].getXCenter() < ball[j].getXCenter() + ball[i].getRadius() + ball[j].getRadius()
+                        && ball[i].getYCenter() + ball[i].getRadius() + ball[j].getRadius() > ball[j].getYCenter() 
+                        && ball[i].getYCenter() < ball[j].getYCenter() + ball[i].getRadius() + ball[j].getRadius()
+                        && noCollision)
+                    {
+                        ball[i].collide();
+                        ball[j].collide();
+                        ball[j].move();
+                        noCollision = false;
+                    }
+                }
+                
                 ball[i].move();
             }
         }
-        
     }
 }
