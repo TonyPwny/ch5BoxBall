@@ -90,14 +90,13 @@ public class BallDemo
         
         // create a set of balls based on user defined amount with a random starting location
         // based on canvas size and frame width
-        HashSet<BoxBall> ballSet = new HashSet<BoxBall>();
-        for (int count= 0; count < ballCount; count++)
+        BoxBall ball[] = new BoxBall[ballCount];
+        for (int i= 0; i < ballCount; i++)
         {
-            BoxBall ball = new BoxBall((random.nextInt(width - (2*frameWidth) - 52)) + (frameWidth + 26),
+            ball[i] = new BoxBall((random.nextInt(width - (2*frameWidth) - 52)) + (frameWidth + 26),
                                         (random.nextInt(height - (2*frameWidth) - 52)) + (frameWidth + 26),
                                         ground, ceiling, leftWall, rightWall, myCanvas);
-            ballSet.add(ball);
-            ball.draw();
+            ball[i].draw();
         }
         
         // make them bounce
@@ -105,11 +104,29 @@ public class BallDemo
         while(!finished) {
             myCanvas.wait(50);           // small delay
             
-            for (BoxBall ball : ballSet) {
-
-                ball.move();
+            boolean noCollision;
+            for (int i=0; i < ballCount; i++) {
+                
+                noCollision = true;
+                for (int j = i + 1; (j < ballCount) && noCollision; j++) {
+                    
+                    // got algorithm for collision detection from:
+                    // https://gamedevelopment.tutsplus.com/tutorials/when-worlds-collide-simulating-circle-circle-collisions--gamedev-769
+                    if (ball[i].getXCenter() + ball[i].getRadius() + ball[j].getRadius() > ball[j].getXCenter() 
+                        && ball[i].getXCenter() < ball[j].getXCenter() + ball[i].getRadius() + ball[j].getRadius()
+                        && ball[i].getYCenter() + ball[i].getRadius() + ball[j].getRadius() > ball[j].getYCenter() 
+                        && ball[i].getYCenter() < ball[j].getYCenter() + ball[i].getRadius() + ball[j].getRadius()
+                        && noCollision)
+                    {
+                        ball[i].collide();
+                        ball[j].collide();
+                        ball[j].move();
+                        noCollision = false;
+                    }
+                }
+                
+                ball[i].move();
             }
         }
-        
     }
 }

@@ -128,6 +128,15 @@ public class BoxBall
         // draw again at new position
         draw();
     }
+    
+    /**
+     * Very basic collision response method for when ball objects move into each other
+     */
+    public void collide()
+    {
+        xSpeed = -xSpeed;
+        ySpeed = -ySpeed;
+    }
 
     /**
      * return the horizontal position of this ball
@@ -147,7 +156,7 @@ public class BoxBall
     
     public int getRadius()
     {
-        return (diameter/2);
+        return diameter/2;
     }
     
     public int getXCenter()
