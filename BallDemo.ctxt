@@ -9,5 +9,5 @@ comment2.target=void\ bounce()
 comment2.text=\n\ Simulate\ two\ bouncing\ balls\n
 comment3.params=ballCount
 comment3.target=void\ boxBounce(int)
-comment3.text=\n\ Draws\ a\ rectangle\ (the\ box)\ on\ screen\ and\ a\ user\ defined\ amount\ of\ balls\ to\ move\ around\ it.\n
+comment3.text=\n\ Draws\ a\ rectangle\ (the\ box)\ on\ screen\ and\ a\ user\ defined\ amount\ of\ balls\ to\ move\ around\ it.\n\ \n\ @param\ ballCount\ how\ many\ balls\ to\ render\n
 numComments=4

@@ -65,6 +65,8 @@ public class BallDemo
     
     /**
      * Draws a rectangle (the box) on screen and a user defined amount of balls to move around it.
+     * 
+     * @param ballCount how many balls to render
      */
     public void boxBounce(int ballCount)
     {
@@ -76,7 +78,7 @@ public class BallDemo
 
         myCanvas.setVisible(true);
 
-        // boxBounce draws a box inside the canvas
+        // fulfills: boxBounce draws a box inside the canvas
         // draw the ground
         myCanvas.drawLine(leftWall, ground, rightWall, ground);
         // draw the ceiling
@@ -85,7 +87,6 @@ public class BallDemo
         myCanvas.drawLine(leftWall, ceiling, leftWall, ground);
         // draw the right wall
         myCanvas.drawLine(rightWall, ceiling, rightWall, ground);
-        
         
         // create a set of balls based on user defined amount with a random starting location
         // based on canvas size and frame width
@@ -105,7 +106,7 @@ public class BallDemo
             myCanvas.wait(50);           // small delay
             
             for (BoxBall ball : ballSet) {
-                
+
                 ball.move();
             }
         }
