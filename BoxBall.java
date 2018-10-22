@@ -109,8 +109,14 @@ public class BoxBall
         
         // check if it has hit the left wall
         if(xPosition <= leftWallPosition) {
-            xPosition = (int)(leftWallPosition + 1); // +1 prevents chipping
-            xSpeed = -xSpeed; 
+            if (diameter % 2 == 0) {
+                xPosition = (int)(leftWallPosition + 1); // +1 prevents chipping
+                xSpeed = -xSpeed;
+            }
+            else {
+                xPosition = (int)(leftWallPosition);
+                xSpeed = -xSpeed; 
+            }
         }
         
         // check if it has hit the right wall
@@ -121,7 +127,7 @@ public class BoxBall
         
         // draw again at new position
         draw();
-    }    
+    }
 
     /**
      * return the horizontal position of this ball
@@ -137,5 +143,20 @@ public class BoxBall
     public int getYPosition()
     {
         return yPosition;
+    }
+    
+    public int getRadius()
+    {
+        return (diameter/2);
+    }
+    
+    public int getXCenter()
+    {
+        return (xPosition + getRadius());
+    }
+    
+    public int getYCenter()
+    {
+        return (yPosition + getRadius());
     }
 }
