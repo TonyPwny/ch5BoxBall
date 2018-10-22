@@ -90,14 +90,13 @@ public class BallDemo
         
         // create a set of balls based on user defined amount with a random starting location
         // based on canvas size and frame width
-        HashSet<BoxBall> ballSet = new HashSet<BoxBall>();
-        for (int count= 0; count < ballCount; count++)
+        BoxBall ball[] = new BoxBall[ballCount];
+        for (int i= 0; i < ballCount; i++)
         {
-            BoxBall ball = new BoxBall((random.nextInt(width - (2*frameWidth) - 52)) + (frameWidth + 26),
+            ball[i] = new BoxBall((random.nextInt(width - (2*frameWidth) - 52)) + (frameWidth + 26),
                                         (random.nextInt(height - (2*frameWidth) - 52)) + (frameWidth + 26),
                                         ground, ceiling, leftWall, rightWall, myCanvas);
-            ballSet.add(ball);
-            ball.draw();
+            ball[i].draw();
         }
         
         // make them bounce
@@ -105,9 +104,9 @@ public class BallDemo
         while(!finished) {
             myCanvas.wait(50);           // small delay
             
-            for (BoxBall ball : ballSet) {
+            for (int i=0; i < ballCount; i++) {
 
-                ball.move();
+                ball[i].move();
             }
         }
         
