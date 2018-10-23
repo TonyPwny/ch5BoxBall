@@ -9,6 +9,7 @@ comment10.target=int\ getYPosition()
 comment10.text=\n\ return\ the\ vertical\ position\ of\ this\ ball\n
 comment11.params=
 comment11.target=int\ getRadius()
+comment11.text=\n\ Radii\ and\ center\ point\ positional\ data\ for\ each\ circle\ for\ collision\ calculations.\n
 comment12.params=
 comment12.target=int\ getXCenter()
 comment13.params=

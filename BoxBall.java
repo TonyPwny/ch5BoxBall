@@ -168,6 +168,9 @@ public class BoxBall
         return yPosition;
     }
     
+    /**
+     * Radii and center point positional data for each circle for collision calculations.
+     */
     public int getRadius()
     {
         return diameter/2;
