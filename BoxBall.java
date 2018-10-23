@@ -1,5 +1,5 @@
-import java.awt.*;
-import java.awt.geom.*;
+import java.awt.Color;
+import java.awt.geom.Ellipse2D;
 import java.util.Random;
 
 /**
@@ -110,7 +110,7 @@ public class BoxBall
         // check if it has hit the left wall
         if(xPosition <= leftWallPosition) {
             if (diameter % 2 == 0) {
-                xPosition = (int)(leftWallPosition + 1); // +1 prevents chipping
+                xPosition = (int)(leftWallPosition + 1); // +1 prevents chipping for balls with an odd integer radius
                 xSpeed = -xSpeed;
             }
             else {

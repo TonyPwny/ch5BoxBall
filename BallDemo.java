@@ -5,7 +5,7 @@ import java.util.Random;
  * Class BallDemo - a short demonstration showing animation with the 
  * Canvas class. 
  *
- * @authoy Anthony Tiongson
+ * @author Anthony Tiongson
  * @version 2018.10.22
  * 
  * @author Bill Crosbie
@@ -124,7 +124,7 @@ public class BallDemo
                         if (distance < ball[i].getRadius() + ball[j].getRadius())
                         {
                             //balls have collided
-                            
+                            //the following are my own rudimentary collision response algorithms
                             if (ball[i].getXCenter() < ball[j].getXCenter()) {
                                 ball[i].collideRight();
                                 ball[j].collideLeft();
