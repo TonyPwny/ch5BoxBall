@@ -101,7 +101,7 @@ public class BallDemo
         // make them bounce
         boolean finished =  false;
         while(!finished) {
-            myCanvas.wait(50);           // small delay
+            myCanvas.wait(25);           // small delay, reduced to 25 from 50 to give it a more fluid look
             
             boolean noCollision;
             for (int i=0; i < ballCount; i++) {
