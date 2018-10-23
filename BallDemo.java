@@ -1,5 +1,4 @@
 import java.awt.Color;
-import java.util.HashSet;
 import java.util.Random;
 
 /**
