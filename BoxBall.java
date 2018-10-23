@@ -130,12 +130,26 @@ public class BoxBall
     }
     
     /**
-     * Very basic collision response method for when ball objects move into each other
+     * Very basic collision response methods for when ball objects move into each other
      */
-    public void collide()
+    public void collideLeft()
     {
-        xSpeed = -xSpeed;
-        ySpeed = -ySpeed;
+        xSpeed = Math.abs(xSpeed);
+    }
+    
+    public void collideRight()
+    {
+        xSpeed = -Math.abs(xSpeed);
+    }
+    
+    public void collideTop()
+    {
+        ySpeed = Math.abs(ySpeed);
+    }
+    
+    public void collideBottom()
+    {
+        ySpeed = -Math.abs(ySpeed);
     }
 
     /**

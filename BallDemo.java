@@ -118,10 +118,33 @@ public class BallDemo
                         && ball[i].getYCenter() < ball[j].getYCenter() + ball[i].getRadius() + ball[j].getRadius()
                         && noCollision)
                     {
-                        ball[i].collide();
-                        ball[j].collide();
-                        ball[j].move();
-                        noCollision = false;
+                        double distance = Math.sqrt(((ball[i].getXCenter() - ball[j].getXCenter())
+                                    * (ball[i].getXCenter() - ball[j].getXCenter()))
+                                    + ((ball[i].getYCenter() - ball[j].getYCenter())
+                                    * (ball[i].getYCenter() - ball[j].getYCenter())));
+                        if (distance < ball[i].getRadius() + ball[j].getRadius())
+                        {
+                            //balls have collided
+                            
+                            if (ball[i].getXCenter() < ball[j].getXCenter()) {
+                                ball[i].collideRight();
+                                ball[j].collideLeft();
+                            }
+                            else {
+                                ball[i].collideLeft();
+                                ball[j].collideRight();
+                            }
+                            
+                            if (ball[i].getYCenter() < ball[j].getYCenter()) {
+                                ball[i].collideBottom();
+                                ball[j].collideTop();
+                            }
+                            else {
+                                ball[i].collideTop();
+                                ball[j].collideBottom();
+                            }
+                            noCollision = false;
+                        }
                     }
                 }
                 
